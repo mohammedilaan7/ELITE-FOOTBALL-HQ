@@ -1,0 +1,3758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Elite Football HQ</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+        radial-gradient(circle at top right,rgba(53,226,124,.12),transparent 30%),
+        radial-gradient(circle at bottom left,rgba(53,226,124,.08),transparent 30%),
+        #050b08;
+    color:#fff;
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(5,11,8,.94);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(53,226,124,.18);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 6%;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:900;
+    letter-spacing:1px;
+    color:#35e27c;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+.nav-links a{
+    font-size:13px;
+    font-weight:700;
+    color:#d9e5df;
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:#35e27c;
+}
+
+/* HERO */
+
+.hero{
+    min-height:82vh;
+    display:flex;
+    align-items:center;
+    padding:70px 7%;
+    background:
+        linear-gradient(90deg,rgba(5,11,8,.98),rgba(5,11,8,.65)),
+        radial-gradient(circle at 75% 40%,rgba(53,226,124,.18),transparent 30%);
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.hero-tag{
+    color:#35e27c;
+    font-size:14px;
+    font-weight:800;
+    letter-spacing:3px;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-size:clamp(48px,8vw,92px);
+    line-height:.95;
+    font-weight:1000;
+    letter-spacing:-4px;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:#35e27c;
+}
+
+.hero p{
+    max-width:680px;
+    color:#b9c8c0;
+    font-size:18px;
+    margin-bottom:32px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:none;
+    cursor:pointer;
+    padding:14px 23px;
+    border-radius:8px;
+    font-weight:900;
+    font-size:14px;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:#35e27c;
+    color:#041008;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px rgba(53,226,124,.2);
+}
+
+.btn-outline{
+    background:transparent;
+    color:#fff;
+    border:1px solid rgba(255,255,255,.2);
+}
+
+.btn-outline:hover{
+    border-color:#35e27c;
+    color:#35e27c;
+}
+
+section{
+    padding:85px 7%;
+}
+
+.section-heading{
+    margin-bottom:40px;
+}
+
+.section-heading span{
+    color:#35e27c;
+    font-size:13px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.section-heading h2{
+    font-size:42px;
+    margin-top:5px;
+}
+
+.section-heading p{
+    color:#9eaca5;
+    max-width:700px;
+    margin-top:8px;
+}
+
+/* SKILLS */
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.skill-card{
+    background:
+        linear-gradient(145deg,#101a15,#09110d);
+    border:1px solid rgba(53,226,124,.15);
+    border-radius:16px;
+    padding:25px;
+    min-height:210px;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.skill-card:hover{
+    transform:translateY(-5px);
+    border-color:#35e27c;
+}
+
+.skill-number{
+    color:#35e27c;
+    font-size:13px;
+    font-weight:900;
+}
+
+.skill-card h3{
+    font-size:23px;
+    margin:10px 0;
+}
+
+.skill-card p{
+    color:#9eaca5;
+    font-size:14px;
+}
+
+.arrow{
+    margin-top:18px;
+    color:#35e27c;
+    font-size:25px;
+    font-weight:900;
+}
+
+/* TRAINING */
+
+.training-layout{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:22px;
+}
+
+.training-menu{
+    position:sticky;
+    top:100px;
+    align-self:start;
+}
+
+.training-menu button{
+    width:100%;
+    padding:14px;
+    margin-bottom:7px;
+    text-align:left;
+    background:#0b120f;
+    border:1px solid rgba(255,255,255,.07);
+    color:#9ba8a1;
+    border-radius:8px;
+    font-weight:800;
+    transition:.25s;
+}
+
+.training-menu button:hover,
+.training-menu button.active{
+    background:rgba(53,226,124,.1);
+    color:#35e27c;
+    border-color:rgba(53,226,124,.4);
+}
+
+.training-main{
+    background:#0a110e;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:16px;
+    padding:28px;
+}
+
+.training-top{
+    margin-bottom:25px;
+}
+
+.training-top h2{
+    font-size:36px;
+}
+
+.training-top p{
+    color:#98a69e;
+    margin-top:5px;
+}
+
+.meta-row{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:15px;
+}
+
+.meta{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:6px 11px;
+    font-size:11px;
+    color:#dce7e1;
+    font-weight:800;
+}
+
+/* WARMUP / COOLDOWN */
+
+.session-bookends{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin-bottom:25px;
+}
+
+.bookend-card{
+    border-radius:14px;
+    padding:23px;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.warmup{
+    background:linear-gradient(145deg,rgba(53,226,124,.09),rgba(255,255,255,.02));
+    border-color:rgba(53,226,124,.2);
+}
+
+.cooldown{
+    background:linear-gradient(145deg,rgba(60,130,255,.08),rgba(255,255,255,.02));
+}
+
+.bookend-card h3{
+    margin-bottom:15px;
+    font-size:20px;
+}
+
+.warmup h3{
+    color:#35e27c;
+}
+
+.cooldown h3{
+    color:#76a9ff;
+}
+
+.bookend-list{
+    list-style:none;
+}
+
+.bookend-list li{
+    padding:10px;
+    margin-bottom:6px;
+    background:rgba(255,255,255,.035);
+    border-radius:7px;
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    color:#dfe8e3;
+    font-size:14px;
+}
+
+.bookend-list li span:last-child{
+    color:#35e27c;
+    font-weight:800;
+}
+
+/* EXERCISES */
+
+.exercise-section{
+    margin-bottom:22px;
+}
+
+.exercise-section h3{
+    color:#35e27c;
+    font-size:21px;
+    margin-bottom:13px;
+}
+
+.guide-card{
+    background:
+        linear-gradient(145deg,#111b16,#0a120e);
+    border:1px solid rgba(53,226,124,.12);
+    border-radius:13px;
+    padding:22px;
+    margin-bottom:14px;
+}
+
+.guide-card h3{
+    font-size:20px;
+    color:#fff;
+    margin-bottom:14px;
+}
+
+.guide-card ul{
+    list-style:none;
+}
+
+.guide-card li{
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:9px;
+    padding:12px 14px 12px 38px;
+    margin-bottom:8px;
+    position:relative;
+    color:#e6eee9;
+    font-size:15px;
+}
+
+.guide-card li::before{
+    content:"✓";
+    position:absolute;
+    left:14px;
+    color:#35e27c;
+    font-weight:900;
+}
+
+/* VIDEO */
+
+.video-box{
+    margin-top:25px;
+    background:#080f0c;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:14px;
+    padding:20px;
+}
+
+.video-box h3{
+    margin-bottom:15px;
+    color:#35e27c;
+}
+
+.video-wrapper{
+    position:relative;
+    padding-bottom:56.25%;
+    height:0;
+    overflow:hidden;
+    border-radius:10px;
+}
+
+.video-wrapper iframe{
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+    border:none;
+}
+
+/* CHECKLIST */
+
+.checklist{
+    margin-top:22px;
+    background:#0d1511;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:14px;
+    padding:22px;
+}
+
+.checklist h3{
+    color:#35e27c;
+    margin-bottom:15px;
+}
+
+.check-items{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.check-item{
+    background:rgba(255,255,255,.04);
+    padding:11px;
+    border-radius:8px;
+}
+
+.check-item label{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    color:#dbe4df;
+    font-size:14px;
+}
+
+.check-item input{
+    accent-color:#35e27c;
+}
+
+/* NUTRITION */
+
+.nutrition-intro{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-bottom:35px;
+}
+
+.nutrition-intro-card{
+    background:linear-gradient(145deg,#101a15,#09110d);
+    border:1px solid rgba(53,226,124,.16);
+    border-radius:16px;
+    padding:25px;
+    transition:.3s;
+}
+
+.nutrition-intro-card:hover{
+    transform:translateY(-5px);
+    border-color:#35e27c;
+}
+
+.nutrition-icon{
+    width:48px;
+    height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    background:rgba(53,226,124,.1);
+    font-size:24px;
+    margin-bottom:15px;
+}
+
+.nutrition-intro-card h3{
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.nutrition-intro-card p{
+    color:#9eaca5;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.food-examples{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+}
+
+.food-examples span{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    color:#dce7e1;
+    padding:6px 9px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.nutrition-category{
+    background:linear-gradient(145deg,#0d1712,#07100c);
+    border:1px solid rgba(53,226,124,.14);
+    border-radius:16px;
+    padding:28px;
+    margin-bottom:22px;
+}
+
+.nutrition-category-header{
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+    margin-bottom:22px;
+}
+
+.nutrition-category-header>span{
+    color:#35e27c;
+    font-size:15px;
+    font-weight:900;
+    background:rgba(53,226,124,.09);
+    border:1px solid rgba(53,226,124,.18);
+    padding:8px 11px;
+    border-radius:8px;
+}
+
+.nutrition-category-header h3{
+    font-size:25px;
+    margin-bottom:4px;
+}
+
+.nutrition-category-header p{
+    color:#929f98;
+    font-size:14px;
+}
+
+.nutrition-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.nutrition-card{
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:12px;
+    padding:20px;
+}
+
+.nutrition-card h4{
+    color:#35e27c;
+    font-size:15px;
+    margin-bottom:13px;
+}
+
+.nutrition-card ul{
+    list-style:none;
+}
+
+.nutrition-card li{
+    color:#e4ebe7;
+    padding:9px 0 9px 25px;
+    border-bottom:1px solid rgba(255,255,255,.05);
+    position:relative;
+    font-size:14px;
+}
+
+.nutrition-card li::before{
+    content:"✓";
+    position:absolute;
+    left:0;
+    color:#35e27c;
+    font-weight:900;
+}
+
+.meal-timeline{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:12px;
+}
+
+.meal-card{
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:12px;
+    padding:18px;
+}
+
+.meal-card span{
+    color:#35e27c;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.meal-card h4{
+    margin:8px 0;
+    font-size:16px;
+}
+
+.meal-card p{
+    color:#929f98;
+    font-size:13px;
+}
+
+.plate-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.plate-card{
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:12px;
+    padding:20px;
+}
+
+.plate-icon{
+    font-size:27px;
+    margin-bottom:10px;
+}
+
+.plate-card h4{
+    color:#35e27c;
+    font-size:15px;
+    margin-bottom:8px;
+}
+
+.plate-card p{
+    color:#a2afa8;
+    font-size:13px;
+}
+
+.nutrition-rules{
+    background:
+        linear-gradient(145deg,rgba(53,226,124,.1),rgba(255,255,255,.02)),
+        #09120e;
+    border:1px solid rgba(53,226,124,.2);
+    border-radius:16px;
+    padding:28px;
+    margin-bottom:20px;
+}
+
+.nutrition-rules h3{
+    color:#35e27c;
+    font-size:22px;
+    margin-bottom:18px;
+}
+
+.rules-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.rules-grid div{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:10px;
+    padding:16px;
+}
+
+.rules-grid strong{
+    color:#35e27c;
+}
+
+.rules-grid p{
+    color:#dce5df;
+    font-size:14px;
+    margin-top:5px;
+}
+
+.nutrition-note{
+    padding:18px 20px;
+    background:rgba(255,255,255,.035);
+    border-left:3px solid #35e27c;
+    border-radius:8px;
+    color:#aab7b0;
+    font-size:13px;
+}
+
+.nutrition-note strong{
+    color:#35e27c;
+}
+
+/* ASSESSMENT */
+
+.assessment-box{
+    max-width:900px;
+    margin:auto;
+    background:#0b120f;
+    border:1px solid rgba(53,226,124,.14);
+    border-radius:16px;
+    padding:30px;
+}
+
+.question-counter{
+    color:#35e27c;
+    font-weight:900;
+    margin-bottom:12px;
+}
+
+.progress-container{
+    height:7px;
+    background:#18221d;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:30px;
+}
+
+.progress-bar{
+    height:100%;
+    width:0;
+    background:#35e27c;
+    transition:.3s;
+}
+
+.question-card{
+    display:none;
+}
+
+.question-card.active{
+    display:block;
+}
+
+.question-card h3{
+    font-size:25px;
+    margin-bottom:20px;
+}
+
+.answer-options{
+    display:grid;
+    gap:10px;
+}
+
+.answer-option{
+    width:100%;
+    text-align:left;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    color:#dce5df;
+    padding:15px;
+    border-radius:9px;
+}
+
+.answer-option:hover,
+.answer-option.selected{
+    border-color:#35e27c;
+    background:rgba(53,226,124,.1);
+    color:#35e27c;
+}
+
+.assessment-buttons{
+    display:flex;
+    justify-content:space-between;
+    margin-top:25px;
+}
+
+.assessment-result{
+    display:none;
+    text-align:center;
+}
+
+.rating-number{
+    color:#35e27c;
+    font-size:80px;
+    font-weight:900;
+}
+
+.rating-label{
+    color:#8e9a94;
+}
+
+.result-message{
+    max-width:600px;
+    margin:15px auto;
+    color:#dbe5df;
+}
+
+/* TRACKER */
+
+.tracker-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-bottom:25px;
+}
+
+.stat-card{
+    background:linear-gradient(145deg,#101a15,#09110d);
+    border:1px solid rgba(53,226,124,.14);
+    border-radius:15px;
+    padding:25px;
+}
+
+.stat-card span{
+    color:#8c9992;
+    font-size:12px;
+    font-weight:800;
+}
+
+.stat-card strong{
+    display:block;
+    color:#35e27c;
+    font-size:40px;
+    margin-top:5px;
+}
+
+.history-box{
+    background:#0b120f;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.history-header{
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.history-list{
+    max-height:450px;
+    overflow:auto;
+}
+
+.history-item{
+    display:grid;
+    grid-template-columns:1fr 1fr 100px;
+    gap:15px;
+    padding:17px 20px;
+    border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.history-item span{
+    color:#8d9992;
+    font-size:11px;
+}
+
+.history-item strong{
+    display:block;
+    color:#e4ebe7;
+}
+
+.empty-history{
+    color:#7f8c85;
+    padding:35px;
+    text-align:center;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid rgba(255,255,255,.08);
+    padding:35px 7%;
+    color:#7f8c85;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+footer strong{
+    color:#35e27c;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+    .skills-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .training-layout{
+        grid-template-columns:1fr;
+    }
+
+    .training-menu{
+        position:static;
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:5px;
+    }
+
+    .training-menu button{
+        margin:0;
+    }
+
+    .tracker-grid{
+        grid-template-columns:1fr;
+    }
+
+    .session-bookends{
+        grid-template-columns:1fr;
+    }
+
+    .nutrition-intro{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .meal-timeline{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .plate-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .rules-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:650px){
+
+    .navbar{
+        padding:15px 5%;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    section{
+        padding:65px 5%;
+    }
+
+    .hero{
+        padding:55px 5%;
+        min-height:75vh;
+    }
+
+    .hero h1{
+        font-size:52px;
+        letter-spacing:-2px;
+    }
+
+    .skills-grid{
+        grid-template-columns:1fr;
+    }
+
+    .training-main{
+        padding:22px;
+    }
+
+    .training-top h2{
+        font-size:30px;
+    }
+
+    .training-menu{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .check-items{
+        grid-template-columns:1fr;
+    }
+
+    .guide-card li{
+        font-size:15px;
+    }
+
+    .bookend-list li{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:4px;
+    }
+
+    .nutrition-intro{
+        grid-template-columns:1fr;
+    }
+
+    .nutrition-grid{
+        grid-template-columns:1fr;
+    }
+
+    .meal-timeline{
+        grid-template-columns:1fr;
+    }
+
+    .plate-grid{
+        grid-template-columns:1fr;
+    }
+
+    .rules-grid{
+        grid-template-columns:1fr;
+    }
+
+    footer{
+        flex-direction:column;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        ELITE FOOTBALL HQ
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#skills">SKILLS</a></li>
+        <li><a href="#training">TRAINING</a></li>
+        <li><a href="#nutrition">NUTRITION</a></li>
+        <li><a href="#assessment">ASSESSMENT</a></li>
+        <li><a href="#tracker">TRACKER</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-tag">
+            FOOTBALL DEVELOPMENT SYSTEM
+        </div>
+
+        <h1>
+            FROM THE<br>
+            <span>BENCH TO THE XI.</span>
+        </h1>
+
+        <p>
+            Train your technique, speed, stamina and football intelligence
+            with structured sessions designed to help you become a better player.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button
+                class="btn btn-primary"
+                onclick="document.getElementById('training').scrollIntoView({behavior:'smooth'})">
+                START TRAINING
+            </button>
+
+            <button
+                class="btn btn-outline"
+                onclick="document.getElementById('assessment').scrollIntoView({behavior:'smooth'})">
+                PLAYER ASSESSMENT
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <div class="section-heading">
+
+        <span>CORE DEVELOPMENT</span>
+
+        <h2>
+            BUILD YOUR GAME.
+        </h2>
+
+        <p>
+            Choose a skill and open its complete training session.
+        </p>
+
+    </div>
+
+    <div
+        class="skills-grid"
+        id="skillsGrid">
+    </div>
+
+</section>
+
+
+<!-- TRAINING -->
+
+<section id="training">
+
+    <div class="section-heading">
+
+        <span>STRUCTURED TRAINING</span>
+
+        <h2>
+            TRAIN WITH PURPOSE.
+        </h2>
+
+        <p>
+            Every skill includes warm-up, detailed exercises,
+            match-focused drills, cool-down and a session checklist.
+        </p>
+
+    </div>
+
+
+    <div class="training-layout">
+
+        <div
+            class="training-menu"
+            id="trainingMenu">
+        </div>
+
+
+        <div class="training-main">
+
+            <div class="training-top">
+
+                <h2 id="trainingTitle">
+                    Shooting
+                </h2>
+
+                <p id="trainingDescription">
+                    Improve finishing technique.
+                </p>
+
+                <div
+                    class="meta-row"
+                    id="trainingMeta">
+                </div>
+
+            </div>
+
+
+            <div class="session-bookends">
+
+                <div class="bookend-card warmup">
+
+                    <h3>
+                        WARM UP
+                    </h3>
+
+                    <ul
+                        class="bookend-list"
+                        id="warmupList">
+                    </ul>
+
+                </div>
+
+
+                <div class="bookend-card cooldown">
+
+                    <h3>
+                        COOL DOWN
+                    </h3>
+
+                    <ul
+                        class="bookend-list"
+                        id="cooldownList">
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div id="exerciseSections">
+            </div>
+
+
+            <div class="video-box">
+
+                <h3>
+                    TRAINING VIDEO
+                </h3>
+
+                <div class="video-wrapper">
+
+                    <iframe
+                        id="trainingVideo"
+                        src="https://www.youtube.com/embed/sfP9nVmU9sY"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+            </div>
+
+
+            <div class="checklist">
+
+                <h3>
+                    SESSION CHECKLIST
+                </h3>
+
+                <div
+                    class="check-items"
+                    id="checkItems">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     NUTRITION
+========================================================= -->
+
+<section id="nutrition">
+
+    <div class="section-heading">
+
+        <span>FOOTBALL NUTRITION</span>
+
+        <h2>
+            FUEL YOUR GAME.
+        </h2>
+
+        <p>
+            Simple food examples for stamina, speed, strength,
+            football training, recovery and match days.
+        </p>
+
+    </div>
+
+
+    <div class="nutrition-intro">
+
+        <div class="nutrition-intro-card">
+
+            <div class="nutrition-icon">⚡</div>
+
+            <h3>BEFORE TRAINING</h3>
+
+            <p>
+                Choose familiar foods that give you energy.
+            </p>
+
+            <div class="food-examples">
+                <span>Banana</span>
+                <span>Oats</span>
+                <span>Rice</span>
+                <span>Roti</span>
+                <span>Potato</span>
+                <span>Curd</span>
+                <span>Toast</span>
+                <span>Fruit</span>
+            </div>
+
+        </div>
+
+
+        <div class="nutrition-intro-card">
+
+            <div class="nutrition-icon">💪</div>
+
+            <h3>AFTER TRAINING</h3>
+
+            <p>
+                Combine carbohydrates, protein and fluids.
+            </p>
+
+            <div class="food-examples">
+                <span>Rice + Dal</span>
+                <span>Eggs + Roti</span>
+                <span>Chicken + Rice</span>
+                <span>Paneer + Roti</span>
+                <span>Milk</span>
+                <span>Curd</span>
+                <span>Banana</span>
+            </div>
+
+        </div>
+
+
+        <div class="nutrition-intro-card">
+
+            <div class="nutrition-icon">💧</div>
+
+            <h3>HYDRATION</h3>
+
+            <p>
+                Drink water regularly throughout the day.
+            </p>
+
+            <div class="food-examples">
+                <span>Water</span>
+                <span>Before Training</span>
+                <span>During Training</span>
+                <span>After Training</span>
+                <span>Milk</span>
+                <span>Fruit</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- STAMINA -->
+
+    <div class="nutrition-category">
+
+        <div class="nutrition-category-header">
+
+            <span>01</span>
+
+            <div>
+
+                <h3>
+                    STAMINA / ENDURANCE
+                </h3>
+
+                <p>
+                    Foods that provide energy for running and longer sessions.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="nutrition-grid">
+
+            <div class="nutrition-card">
+
+                <h4>
+                    FOOD OPTIONS
+                </h4>
+
+                <ul>
+                    <li>Rice + dal</li>
+                    <li>Roti + vegetables</li>
+                    <li>Oats + banana + milk</li>
+                    <li>Potatoes + eggs</li>
+                    <li>Poha + vegetables</li>
+                    <li>Idli + sambar</li>
+                    <li>Upma + vegetables</li>
+                    <li>Banana + toast</li>
+                </ul>
+
+            </div>
+
+            <div class="nutrition-card">
+
+                <h4>
+                    EXAMPLE DAY
+                </h4>
+
+                <ul>
+                    <li>Breakfast: Oats + banana + milk</li>
+                    <li>Snack: Apple or orange</li>
+                    <li>Lunch: Rice + dal + vegetables + curd</li>
+                    <li>Pre-training: Banana + toast</li>
+                    <li>After training: Milk + banana</li>
+                    <li>Dinner: Roti + dal + vegetables + eggs</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SPEED -->
+
+    <div class="nutrition-category">
+
+        <div class="nutrition-category-header">
+
+            <span>02</span>
+
+            <div>
+
+                <h3>
+                    SPEED / ACCELERATION
+                </h3>
+
+                <p>
+                    Speed work needs enough overall energy and regular meals.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="nutrition-grid">
+
+            <div class="nutrition-card">
+
+                <h4>
+                    BEFORE SPEED TRAINING
+                </h4>
+
+                <ul>
+                    <li>Banana + milk</li>
+                    <li>Banana + toast</li>
+                    <li>Oats + banana</li>
+                    <li>Poha + curd</li>
+                    <li>Idli + sambar</li>
+                    <li>Roti + egg</li>
+                </ul>
+
+            </div>
+
+            <div class="nutrition-card">
+
+                <h4>
+                    AFTER SPEED TRAINING
+                </h4>
+
+                <ul>
+                    <li>Rice + dal + vegetables</li>
+                    <li>Eggs + roti + vegetables</li>
+                    <li>Chicken + rice + vegetables</li>
+                    <li>Paneer + roti + vegetables</li>
+                    <li>Curd + fruit + oats</li>
+                    <li>Milk + banana + normal meal later</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- STRENGTH -->
+
+    <div class="nutrition-category">
+
+        <div class="nutrition-category-header">
+
+            <span>03</span>
+
+            <div>
+
+                <h3>
+                    STRENGTH / MUSCLE SUPPORT
+                </h3>
+
+                <p>
+                    Regular meals can include protein foods and carbohydrates.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="nutrition-grid">
+
+            <div class="nutrition-card">
+
+                <h4>
+                    FOOD EXAMPLES
+                </h4>
+
+                <ul>
+                    <li>Eggs</li>
+                    <li>Milk</li>
+                    <li>Curd</li>
+                    <li>Dal</li>
+                    <li>Rajma</li>
+                    <li>Chana</li>
+                    <li>Paneer</li>
+                    <li>Chicken</li>
+                    <li>Fish</li>
+                    <li>Peanuts or peanut butter</li>
+                </ul>
+
+            </div>
+
+            <div class="nutrition-card">
+
+                <h4>
+                    EXAMPLE MEALS
+                </h4>
+
+                <ul>
+                    <li>Eggs + roti + vegetables</li>
+                    <li>Rice + dal + curd</li>
+                    <li>Chicken + rice + vegetables</li>
+                    <li>Paneer + roti + vegetables</li>
+                    <li>Rajma + rice + curd</li>
+                    <li>Chana + roti + vegetables</li>
+                    <li>Oats + milk + banana</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TRAINING DAY -->
+
+    <div class="nutrition-category">
+
+        <div class="nutrition-category-header">
+
+            <span>04</span>
+
+            <div>
+
+                <h3>
+                    FOOTBALL TRAINING DAY
+                </h3>
+
+                <p>
+                    A simple example of meals around a football session.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="meal-timeline">
+
+            <div class="meal-card">
+                <span>BREAKFAST</span>
+                <h4>Oats + Banana + Milk</h4>
+                <p>Or eggs + roti + fruit.</p>
+            </div>
+
+            <div class="meal-card">
+                <span>LUNCH</span>
+                <h4>Rice + Dal + Vegetables + Curd</h4>
+                <p>Add eggs, paneer, chicken or fish if normally eaten.</p>
+            </div>
+
+            <div class="meal-card">
+                <span>PRE-TRAINING</span>
+                <h4>Banana + Toast</h4>
+                <p>Other options: poha, oats or roti.</p>
+            </div>
+
+            <div class="meal-card">
+                <span>AFTER TRAINING</span>
+                <h4>Milk + Banana</h4>
+                <p>Then have your normal balanced meal.</p>
+            </div>
+
+            <div class="meal-card">
+                <span>DINNER</span>
+                <h4>Roti + Dal + Vegetables + Eggs</h4>
+                <p>Rice + dal + vegetables is another option.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- RECOVERY -->
+
+    <div class="nutrition-category">
+
+        <div class="nutrition-category-header">
+
+            <span>05</span>
+
+            <div>
+
+                <h3>
+                    RECOVERY DAY
+                </h3>
+
+                <p>
+                    Recovery does not mean skipping meals.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="nutrition-grid">
+
+            <div class="nutrition-card">
+
+                <h4>
+                    BREAKFAST
+                </h4>
+
+                <ul>
+                    <li>Oats + milk + banana</li>
+                    <li>Eggs + roti + fruit</li>
+                    <li>Idli + sambar</li>
+                    <li>Poha + curd</li>
+                    <li>Upma + fruit</li>
+                </ul>
+
+            </div>
+
+            <div class="nutrition-card">
+
+                <h4>
+                    LUNCH / DINNER
+                </h4>
+
+                <ul>
+                    <li>Rice + dal + vegetables</li>
+                    <li>Roti + dal + vegetables</li>
+                    <li>Rajma + rice + curd</li>
+                    <li>Chicken + rice + vegetables</li>
+                    <li>Paneer + roti + vegetables</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MATCH DAY -->
+
+    <div class="nutrition-category">
+
+        <div class="nutrition-category-header">
+
+            <span>06</span>
+
+            <div>
+
+                <h3>
+                    MATCH DAY
+                </h3>
+
+                <p>
+                    Keep foods familiar and stay hydrated.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="nutrition-grid">
+
+            <div class="nutrition-card">
+
+                <h4>
+                    BEFORE MATCH
+                </h4>
+
+                <ul>
+                    <li>Rice + dal</li>
+                    <li>Roti + eggs</li>
+                    <li>Oats + banana + milk</li>
+                    <li>Poha + curd</li>
+                    <li>Idli + sambar</li>
+                    <li>Banana</li>
+                    <li>Toast</li>
+                </ul>
+
+            </div>
+
+            <div class="nutrition-card">
+
+                <h4>
+                    AFTER MATCH
+                </h4>
+
+                <ul>
+                    <li>Water</li>
+                    <li>Banana + milk</li>
+                    <li>Rice + dal + vegetables</li>
+                    <li>Chicken + rice</li>
+                    <li>Eggs + roti</li>
+                    <li>Paneer + rice or roti</li>
+                    <li>Curd + fruit</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- EVERYDAY -->
+
+    <div class="nutrition-category">
+
+        <div class="nutrition-category-header">
+
+            <span>07</span>
+
+            <div>
+
+                <h3>
+                    EVERYDAY FOOTBALLER PLATE
+                </h3>
+
+                <p>
+                    Use familiar foods and build balanced meals.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="plate-grid">
+
+            <div class="plate-card">
+
+                <div class="plate-icon">🍚</div>
+
+                <h4>ENERGY FOODS</h4>
+
+                <p>
+                    Rice, roti, oats, potatoes, poha, idli,
+                    upma, bread and fruits.
+                </p>
+
+            </div>
+
+            <div class="plate-card">
+
+                <div class="plate-icon">🥚</div>
+
+                <h4>PROTEIN FOODS</h4>
+
+                <p>
+                    Eggs, dal, rajma, chana, milk, curd,
+                    paneer, chicken and fish.
+                </p>
+
+            </div>
+
+            <div class="plate-card">
+
+                <div class="plate-icon">🥦</div>
+
+                <h4>FRUITS & VEGETABLES</h4>
+
+                <p>
+                    Banana, apple, orange, mango, papaya,
+                    spinach, carrots, peas and other vegetables.
+                </p>
+
+            </div>
+
+            <div class="plate-card">
+
+                <div class="plate-icon">💧</div>
+
+                <h4>FLUIDS</h4>
+
+                <p>
+                    Water regularly throughout the day,
+                    especially around football sessions.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="nutrition-rules">
+
+        <h3>
+            SIMPLE RULES
+        </h3>
+
+        <div class="rules-grid">
+
+            <div>
+                <strong>01</strong>
+                <p>Do not skip regular meals just because you trained.</p>
+            </div>
+
+            <div>
+                <strong>02</strong>
+                <p>Eat a variety of foods instead of relying on one food.</p>
+            </div>
+
+            <div>
+                <strong>03</strong>
+                <p>Drink water regularly throughout the day.</p>
+            </div>
+
+            <div>
+                <strong>04</strong>
+                <p>Eat something familiar before training.</p>
+            </div>
+
+            <div>
+                <strong>05</strong>
+                <p>After training, have a normal balanced meal or snack.</p>
+            </div>
+
+            <div>
+                <strong>06</strong>
+                <p>Food needs can change with age, growth and training load.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="nutrition-note">
+
+        <strong>ELITE FOOTBALL HQ NOTE:</strong>
+
+        This is general football nutrition guidance, not a personalised
+        diet. Young athletes are still growing, so regular balanced meals
+        and enough food are important.
+
+    </div>
+
+</section>
+
+
+<!-- ASSESSMENT -->
+
+<section id="assessment">
+
+    <div class="section-heading">
+
+        <span>PLAYER ASSESSMENT</span>
+
+        <h2>
+            KNOW YOUR GAME.
+        </h2>
+
+        <p>
+            Answer all 10 questions and receive a session rating out of 100.
+        </p>
+
+    </div>
+
+
+    <div class="assessment-box">
+
+        <div
+            class="question-counter"
+            id="questionCounter">
+            QUESTION 1 OF 10
+        </div>
+
+
+        <div class="progress-container">
+
+            <div
+                class="progress-bar"
+                id="assessmentProgress">
+            </div>
+
+        </div>
+
+
+        <div id="questionsContainer">
+        </div>
+
+
+        <div class="assessment-buttons">
+
+            <button
+                class="btn btn-outline"
+                id="previousBtn"
+                onclick="previousQuestion()">
+                PREVIOUS
+            </button>
+
+            <button
+                class="btn btn-primary"
+                id="nextBtn"
+                onclick="nextQuestion()">
+                NEXT
+            </button>
+
+        </div>
+
+
+        <div
+            class="assessment-result"
+            id="assessmentResult">
+
+            <div
+                class="rating-number"
+                id="finalRating">
+                0
+            </div>
+
+            <div class="rating-label">
+                PLAYER RATING / 100
+            </div>
+
+            <p
+                class="result-message"
+                id="resultMessage">
+            </p>
+
+            <button
+                class="btn btn-primary"
+                onclick="startNewAssessment()"
+                style="margin-top:20px;">
+                NEW ASSESSMENT
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TRACKER -->
+
+<section id="tracker">
+
+    <div class="section-heading">
+
+        <span>PLAYER TRACKER</span>
+
+        <h2>
+            TRACK YOUR PROGRESS.
+        </h2>
+
+        <p>
+            Your completed sessions and ratings are saved on this device.
+        </p>
+
+    </div>
+
+
+    <div class="tracker-grid">
+
+        <div class="stat-card">
+
+            <span>
+                TOTAL SESSIONS
+            </span>
+
+            <strong id="totalSessions">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                AVERAGE RATING
+            </span>
+
+            <strong id="averageRating">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                BEST SESSION
+            </span>
+
+            <strong id="bestSession">
+                0
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="history-box">
+
+        <div class="history-header">
+
+            <h3>
+                SESSION HISTORY
+            </h3>
+
+            <button
+                class="btn btn-outline"
+                onclick="clearHistory()">
+                CLEAR
+            </button>
+
+        </div>
+
+        <div
+            class="history-list"
+            id="historyList">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div>
+
+        <strong>
+            ELITE FOOTBALL HQ
+        </strong>
+
+        <br>
+
+        Train. Improve. Perform.
+
+    </div>
+
+    <div>
+        Football Development Dashboard
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   TRAINING DATA
+========================================================= */
+
+const trainingData={
+
+shooting:{
+
+name:"Shooting",
+
+description:
+"Improve finishing technique, accuracy, striking technique and match-like shooting.",
+
+duration:"42–45 min",
+
+level:"Intermediate",
+
+focus:"Finishing",
+
+video:
+"https://www.youtube.com/embed/sfP9nVmU9sY",
+
+warmup:[
+["Easy jog","2 min"],
+["High knees","20 sec"],
+["Butt kicks","20 sec"],
+["Walking lunges","10 each leg"],
+["Leg swings","10 each leg"],
+["Ankle circles","10 each direction"],
+["Inside-foot touches","20 each foot"],
+["Easy wall passes","10 each foot"]
+],
+
+cooldown:[
+["Easy walk","2 min"],
+["Quad stretch","20 sec each leg"],
+["Calf stretch","20 sec each leg"],
+["Hamstring stretch","20 sec each leg"],
+["Hip-flexor stretch","20 sec each side"],
+["Ankle circles","10 each direction"],
+["Slow breathing","5 breaths"],
+["Drink water","As needed"]
+],
+
+sections:[
+
+{
+title:"TOUCH AND SHOOT",
+
+items:[
+"Take your first touch forward — 10 repetitions.",
+"Touch the ball out of your feet and shoot — 10 repetitions.",
+"Control with your right foot and shoot — 10 repetitions.",
+"Control with your left foot and shoot — 10 repetitions.",
+"One-touch finish from a pass — 10 repetitions.",
+"Two-touch finish — 10 repetitions.",
+"Receive, touch and shoot quickly — 10 repetitions.",
+"Keep your first touch close enough to shoot.",
+"Look at the target before striking.",
+"Use both feet."
+]
+},
+
+{
+title:"IMPROVE ACCURACY",
+
+items:[
+"Aim for the bottom-left corner — 10 shots.",
+"Aim for the bottom-right corner — 10 shots.",
+"Aim for the top-left area — 10 controlled shots.",
+"Aim for the top-right area — 10 controlled shots.",
+"Inside-foot placement finish — 10 shots.",
+"Low ground finish — 10 shots.",
+"Near-post finish — 10 shots.",
+"Far-post finish — 10 shots.",
+"Complete 3 × 10 accuracy rounds.",
+"Rest 30–45 seconds between rounds."
+]
+},
+
+{
+title:"ADD POWER SAFELY",
+
+items:[
+"Laces strike — 8 controlled shots.",
+"Plant your non-kicking foot beside the ball — 10 repetitions.",
+"Lock your ankle before striking — 10 repetitions.",
+"Lean slightly forward — 8 shots.",
+"Follow through toward the target — 8 shots.",
+"Drive through the ball — 8 controlled shots.",
+"Do not sacrifice accuracy for power.",
+"Recover the ball between repetitions.",
+"Use both feet when possible.",
+"Stop if technique becomes uncomfortable."
+]
+},
+
+{
+title:"MOVEMENT + FINISHING",
+
+items:[
+"Start away from the ball and move toward it — 5 repetitions.",
+"Check away then check toward the ball — 5 repetitions.",
+"Receive, touch and shoot — 10 repetitions.",
+"Wall pass → move → receive → shoot — 10 repetitions.",
+"Dribble → touch → shoot — 10 repetitions.",
+"Run across the defender line → finish — 5 each side.",
+"Near-post run → shoot — 5 repetitions.",
+"Far-post run → shoot — 5 repetitions.",
+"Change your starting position.",
+"Keep the movement controlled."
+]
+},
+
+{
+title:"MATCH FINISHING",
+
+items:[
+"Dribble toward goal → shoot — 10 repetitions.",
+"Touch past a cone → shoot — 10 repetitions.",
+"Turn around a cone → shoot — 10 repetitions.",
+"Receive from the side → shoot — 10 repetitions.",
+"First-time finish — 10 repetitions.",
+"Weaker-foot finish — 10 repetitions.",
+"Quick finish after a rebound — 10 repetitions.",
+"Choose the corner before shooting.",
+"Use realistic match movement.",
+"Finish with both feet."
+]
+}
+
+]
+
+},
+
+
+speed:{
+
+name:"Speed",
+
+description:
+"Build acceleration, sprinting technique, change of direction and football speed.",
+
+duration:"35–40 min",
+
+level:"Intermediate",
+
+focus:"Acceleration",
+
+video:
+"https://www.youtube.com/embed/pctIqjikWX8",
+
+warmup:[
+["Easy jog","3 min"],
+["High knees","20 sec"],
+["Butt kicks","20 sec"],
+["Walking lunges","10 each leg"],
+["Leg swings","10 each leg"],
+["Ankle circles","10 each direction"],
+["Side shuffles","20 sec"],
+["Gradual acceleration runs","3 reps"]
+],
+
+cooldown:[
+["Easy walk","2–3 min"],
+["Quad stretch","20 sec each leg"],
+["Calf stretch","20 sec each leg"],
+["Hamstring stretch","20 sec each leg"],
+["Hip-flexor stretch","20 sec each side"],
+["Ankle circles","10 each direction"],
+["Slow breathing","5 breaths"],
+["Drink water","As needed"]
+],
+
+sections:[
+
+{
+title:"ACCELERATION SPRINTS",
+
+items:[
+"10 metre acceleration sprint — 5 repetitions.",
+"Start slowly and build speed through the first steps.",
+"Focus on powerful first 3 steps — 5 repetitions.",
+"20 metre sprint — 4 repetitions.",
+"Walk back for recovery after each sprint.",
+"Keep your body slightly forward at the start.",
+"Drive your arms forward and backward.",
+"Keep your eyes looking ahead.",
+"Do not sprint at maximum speed if your technique breaks down.",
+"Take enough recovery between hard efforts."
+]
+},
+
+{
+title:"CHANGE OF DIRECTION",
+
+items:[
+"5 metre shuttle run — 5 repetitions.",
+"Run forward → stop → turn → run back — 5 repetitions.",
+"Side shuffle → sprint — 5 repetitions each side.",
+"Run to cone → cut left → accelerate — 5 repetitions.",
+"Run to cone → cut right → accelerate — 5 repetitions.",
+"Use small controlled steps before changing direction.",
+"Lower your body slightly before the turn.",
+"Push away strongly after the turn.",
+"Keep your balance.",
+"Recover between repetitions."
+]
+},
+
+{
+title:"FOOTBALL SPEED",
+
+items:[
+"Dribble 10 metres quickly — 5 repetitions.",
+"Slow dribble → acceleration — 5 repetitions.",
+"Ball touch → sprint without ball — 5 repetitions.",
+"Pass → move quickly into space — 10 repetitions.",
+"Receive → turn → accelerate — 5 each side.",
+"Dribble around cone → sprint — 5 repetitions.",
+"First touch forward → accelerate — 10 repetitions.",
+"Keep the ball close enough to control.",
+"Look up when safe.",
+"Focus on speed without losing control."
+]
+},
+
+{
+title:"REACTION SPEED",
+
+items:[
+"Start sprint when you hear a clap — 5 repetitions.",
+"Start sprint on a visual signal — 5 repetitions.",
+"Left/right reaction drill — 5 each side.",
+"Partner points left or right → move that way — 5 repetitions.",
+"Backpedal → turn → sprint — 5 repetitions.",
+"Side shuffle → reaction sprint — 5 repetitions.",
+"Stay light on your feet.",
+"React first, then accelerate.",
+"Keep movements controlled.",
+"Rest between hard efforts."
+]
+},
+
+{
+title:"MATCH SPEED",
+
+items:[
+"Jog → sprint → walk — 5 rounds.",
+"Dribble → accelerate → stop — 5 rounds.",
+"Move into space → sprint — 5 repetitions.",
+"Defensive shuffle → sprint forward — 5 repetitions.",
+"Run behind a cone → accelerate — 5 repetitions.",
+"Change direction → sprint — 5 repetitions.",
+"Use short football movements.",
+"Keep good technique while tired.",
+"Take walking recovery when needed.",
+"Quality is more important than doing endless repetitions."
+]
+}
+
+]
+
+},
+
+
+stamina:{
+
+name:"Stamina",
+
+description:
+"Build endurance and improve your ability to repeat football movements.",
+
+duration:"35–45 min",
+
+level:"Intermediate",
+
+focus:"Endurance",
+
+video:
+"https://www.youtube.com/embed/yRL0dvHsqAA",
+
+warmup:[
+["Easy jog","3 min"],
+["High knees","20 sec"],
+["Butt kicks","20 sec"],
+["Walking lunges","10 each leg"],
+["Leg swings","10 each leg"],
+["Ankle circles","10 each direction"],
+["Side shuffles","20 sec"],
+["Easy acceleration","3 reps"]
+],
+
+cooldown:[
+["Easy walk","3 min"],
+["Quad stretch","20 sec each leg"],
+["Calf stretch","20 sec each leg"],
+["Hamstring stretch","20 sec each leg"],
+["Hip-flexor stretch","20 sec each side"],
+["Gentle walking","2 min"],
+["Slow breathing","5 breaths"],
+["Drink water","As needed"]
+],
+
+sections:[
+
+{
+title:"BUILD BASIC ENDURANCE",
+
+items:[
+"Easy jog — 5 minutes.",
+"Walk recovery — 1 minute.",
+"Easy jog — 5 minutes.",
+"Walk recovery — 1 minute.",
+"Easy jog — 5 minutes.",
+"Keep a pace you can control.",
+"Do not start too fast.",
+"Breathe steadily.",
+"Keep your running form relaxed.",
+"Stop if you feel dizzy or unwell."
+]
+},
+
+{
+title:"RUN + WALK INTERVALS",
+
+items:[
+"Jog — 2 minutes.",
+"Faster run — 30 seconds.",
+"Walk — 60 seconds.",
+"Repeat the cycle 5 times.",
+"Jog — 2 minutes.",
+"Faster run — 30 seconds.",
+"Walk recovery — 60 seconds.",
+"Keep the faster runs controlled.",
+"Recover properly between rounds.",
+"Do not suddenly double the workload."
+]
+},
+
+{
+title:"FOOTBALL STAMINA",
+
+items:[
+"Jog forward — 60 seconds.",
+"Side shuffle — 20 seconds.",
+"Forward run — 30 seconds.",
+"Walk — 60 seconds.",
+"Dribble with the ball — 45 seconds.",
+"Pass + move — 45 seconds.",
+"Change direction — 30 seconds.",
+"Walk recovery — 60 seconds.",
+"Complete 2–3 controlled circuits.",
+"Keep technique controlled when tired."
+]
+},
+
+{
+title:"REPEATED SPRINTS",
+
+items:[
+"10 metre sprint — 5 repetitions.",
+"Walk back after each sprint.",
+"20 metre sprint — 4 repetitions.",
+"Walk recovery — 60–90 seconds.",
+"Dribble sprint — 5 repetitions.",
+"Change-direction sprint — 5 repetitions.",
+"Do not sprint if your technique is falling apart.",
+"Take extra recovery if needed.",
+"Focus on quality.",
+"Finish with easy walking."
+]
+},
+
+{
+title:"MATCH STAMINA",
+
+items:[
+"Jog — 60 seconds.",
+"Fast movement — 20 seconds.",
+"Walk — 60 seconds.",
+"Dribble — 45 seconds.",
+"Change direction — 30 seconds.",
+"Pass + move — 45 seconds.",
+"Moderate run — 30 seconds.",
+"Walk recovery — 60 seconds.",
+"Complete 3–5 controlled circuits.",
+"Keep the final circuit controlled."
+]
+}
+
+]
+
+},
+
+
+passing:{
+
+name:"Passing",
+
+description:
+"Improve passing accuracy, first touch, scanning and passing while moving.",
+
+duration:"35–40 min",
+
+level:"Intermediate",
+
+focus:"Technique",
+
+video:
+"https://www.youtube.com/embed/PLG7nG1EWZM",
+
+warmup:[
+["Easy jog","3 min"],
+["Toe taps","30 sec"],
+["Inside touches","30 sec"],
+["Outside touches","30 sec"],
+["Wall passes","10 each foot"],
+["Walking lunges","10 each leg"],
+["Side shuffles","20 sec"],
+["Ball rolls","10 each foot"],
+["Easy passing","2 min"]
+],
+
+cooldown:[
+["Easy walk","2 min"],
+["Calf stretch","20 sec each leg"],
+["Quad stretch","20 sec each leg"],
+["Hamstring stretch","20 sec each leg"],
+["Hip-flexor stretch","20 sec each side"],
+["Ankle circles","10 each direction"],
+["Slow breathing","5 breaths"],
+["Drink water","As needed"]
+],
+
+sections:[
+
+{
+title:"MASTER SHORT PASSING",
+
+items:[
+"Right-foot inside pass — 20 passes.",
+"Left-foot inside pass — 20 passes.",
+"Two-touch passing — 20 repetitions.",
+"One-touch passing — 20 repetitions.",
+"Target passing — 10 accurate passes.",
+"Receive + pass — 20 repetitions.",
+"Wall passing — 3 minutes.",
+"Alternate feet regularly.",
+"Keep the ball grounded.",
+"Focus on accuracy before speed."
+]
+},
+
+{
+title:"IMPROVE FIRST TOUCH",
+
+items:[
+"Inside-foot control — 20 touches.",
+"Outside-foot control — 20 touches.",
+"First touch to the right — 10 repetitions.",
+"First touch to the left — 10 repetitions.",
+"First touch forward — 10 repetitions.",
+"Wall pass → control → pass — 20 repetitions.",
+"Control away from pressure — 10 repetitions.",
+"Take your first touch into space.",
+"Keep the ball within playing distance.",
+"Look before receiving."
+]
+},
+
+{
+title:"PASS + MOVE",
+
+items:[
+"Pass to wall → move left — 10 repetitions.",
+"Pass to wall → move right — 10 repetitions.",
+"Pass → take 3 steps → receive — 10 repetitions.",
+"Pass → move forward — 10 repetitions.",
+"Pass → move backward — 10 repetitions.",
+"Pass → change direction — 10 repetitions.",
+"Pass and immediately find space.",
+"Keep your body open when receiving.",
+"Scan before the ball arrives.",
+"Use both feet."
+]
+},
+
+{
+title:"LONGER PASSING",
+
+items:[
+"Driven pass — 10 repetitions.",
+"Long inside-foot pass — 10 repetitions.",
+"Target pass over distance — 10 repetitions.",
+"Right-foot longer pass — 10 repetitions.",
+"Left-foot longer pass — 10 repetitions.",
+"Pass through a cone gate — 10 repetitions.",
+"Control the ball before the next pass.",
+"Focus on direction.",
+"Use enough power to reach the target.",
+"Do not sacrifice accuracy."
+]
+},
+
+{
+title:"MATCH PASSING",
+
+items:[
+"Receive → scan → pass — 10 repetitions.",
+"Receive → turn → pass — 10 repetitions.",
+"One-touch pass → move — 10 repetitions.",
+"Two-touch pass → move — 10 repetitions.",
+"Pass into space — 10 repetitions.",
+"Pass around a cone — 10 repetitions.",
+"Use both feet.",
+"Move immediately after passing.",
+"Look up when safe.",
+"Try to play at realistic match speed."
+]
+}
+
+]
+
+},
+
+
+weakFoot:{
+
+name:"Weak Foot",
+
+description:
+"Develop confidence, control and accuracy with your weaker foot.",
+
+duration:"30–35 min",
+
+level:"Intermediate",
+
+focus:"Weak Foot",
+
+video:
+"https://www.youtube.com/embed/q2xJ_Chk-Gw",
+
+warmup:[
+["Easy jog","2 min"],
+["Inside touches weak foot","30 sec"],
+["Outside touches weak foot","30 sec"],
+["Toe taps","30 sec"],
+["Walking lunges","10 each leg"],
+["Ankle circles","10 each direction"],
+["Weak-foot wall passes","10"],
+["Easy dribbling","1 min"]
+],
+
+cooldown:[
+["Easy walk","2 min"],
+["Quad stretch","20 sec each leg"],
+["Calf stretch","20 sec each leg"],
+["Hamstring stretch","20 sec each leg"],
+["Hip-flexor stretch","20 sec each side"],
+["Ankle circles","10 each direction"],
+["Slow breathing","5 breaths"],
+["Drink water","As needed"]
+],
+
+sections:[
+
+{
+title:"WEAK-FOOT TOUCHES",
+
+items:[
+"Right/weak-foot inside touches — 30 seconds.",
+"Weak-foot outside touches — 30 seconds.",
+"Weak-foot sole rolls — 20 repetitions.",
+"Weak-foot toe taps — 30 seconds.",
+"Inside → outside touch — 10 repetitions.",
+"Outside → inside touch — 10 repetitions.",
+"Forward weak-foot touches — 20 metres.",
+"Side-to-side weak-foot touches — 30 seconds.",
+"Keep the ball close.",
+"Increase speed gradually."
+]
+},
+
+{
+title:"WEAK-FOOT PASSING",
+
+items:[
+"Weak-foot wall passes — 20 repetitions.",
+"Short weak-foot passes — 20 repetitions.",
+"Two-touch weak-foot passing — 20 repetitions.",
+"One-touch weak-foot passing — 10 repetitions.",
+"Target passing — 10 repetitions.",
+"Pass through a cone gate — 10 repetitions.",
+"Receive → weak-foot pass — 20 repetitions.",
+"Keep the ankle firm.",
+"Focus on accuracy.",
+"Do not rush."
+]
+},
+
+{
+title:"WEAK-FOOT FIRST TOUCH",
+
+items:[
+"Receive with weak foot — 20 repetitions.",
+"First touch forward — 10 repetitions.",
+"First touch sideways — 10 repetitions.",
+"First touch away from pressure — 10 repetitions.",
+"Wall pass → weak-foot control — 20 repetitions.",
+"Control → pass — 20 repetitions.",
+"Control → dribble — 10 repetitions.",
+"Keep your first touch close.",
+"Look up after controlling.",
+"Use your weak foot as often as possible."
+]
+},
+
+{
+title:"WEAK-FOOT DRIBBLING",
+
+items:[
+"Straight-line weak-foot dribble — 20 metres.",
+"Slalom around cones — 5 rounds.",
+"Inside/outside touches — 30 seconds.",
+"Sole roll → weak-foot touch — 10 repetitions.",
+"Change direction — 10 repetitions.",
+"Pull-back → turn — 10 repetitions.",
+"Dribble → accelerate — 5 repetitions.",
+"Keep the ball close.",
+"Use small touches.",
+"Increase speed only when control is good."
+]
+},
+
+{
+title:"WEAK-FOOT SHOOTING",
+
+items:[
+"Controlled weak-foot shots — 10 repetitions.",
+"Inside-foot placement — 10 shots.",
+"Laces weak-foot shots — 8 shots.",
+"Near-post weak-foot finish — 5 shots.",
+"Far-post weak-foot finish — 5 shots.",
+"Touch → weak-foot shoot — 10 repetitions.",
+"Dribble → weak-foot shoot — 10 repetitions.",
+"One-touch weak-foot finish — 10 repetitions.",
+"Focus on accuracy before power.",
+"Use the weak foot naturally in matches."
+]
+}
+
+]
+
+},
+
+
+ballMastery:{
+
+name:"Ball Mastery",
+
+description:
+"Improve close control, touches, dribbling and coordination.",
+
+duration:"35–40 min",
+
+level:"Intermediate",
+
+focus:"Ball Control",
+
+video:
+"https://www.youtube.com/embed/e5RxAJM-oxc",
+
+warmup:[
+["Easy jog","2 min"],
+["Toe taps","30 sec"],
+["Inside touches","30 sec"],
+["Outside touches","30 sec"],
+["Sole rolls","20 reps"],
+["Ankle circles","10 each direction"],
+["Easy dribbling","1 min"],
+["Gentle ball touches","30 sec"]
+],
+
+cooldown:[
+["Easy walk","2 min"],
+["Quad stretch","20 sec each leg"],
+["Calf stretch","20 sec each leg"],
+["Hamstring stretch","20 sec each leg"],
+["Hip-flexor stretch","20 sec each side"],
+["Ankle circles","10 each direction"],
+["Slow breathing","5 breaths"],
+["Drink water","As needed"]
+],
+
+sections:[
+
+{
+title:"BASIC BALL TOUCHES",
+
+items:[
+"Toe taps — 30 seconds.",
+"Inside-foot touches — 30 seconds.",
+"Outside-foot touches — 30 seconds.",
+"Right-foot touches — 30 seconds.",
+"Left-foot touches — 30 seconds.",
+"Alternating touches — 30 seconds.",
+"Side-to-side touches — 30 seconds.",
+"Forward touches — 20 metres.",
+"Keep the ball close.",
+"Increase speed gradually."
+]
+},
+
+{
+title:"MASTER THE SOLE",
+
+items:[
+"Sole roll right — 15 repetitions.",
+"Sole roll left — 15 repetitions.",
+"Pull-back — 15 repetitions.",
+"Pull-back + turn — 10 repetitions.",
+"Sole drag forward — 10 repetitions.",
+"Sole drag sideways — 10 repetitions.",
+"Roll + outside touch — 10 repetitions.",
+"Roll + acceleration — 10 repetitions.",
+"Alternate feet.",
+"Start slowly, then increase speed."
+]
+},
+
+{
+title:"USE BOTH FEET",
+
+items:[
+"Right-foot touches — 30 seconds.",
+"Left-foot touches — 30 seconds.",
+"Alternating touches — 30 seconds.",
+"Inside/outside alternating — 30 seconds.",
+"Sole rolls with both feet — 20 repetitions.",
+"Weak-foot control — 1 minute.",
+"Strong-foot control — 1 minute.",
+"Combination touches — 2 minutes.",
+"Look up when safe.",
+"Keep control before increasing speed."
+]
+},
+
+{
+title:"LINK YOUR SKILLS",
+
+items:[
+"Toe taps → inside touch — 5 repetitions.",
+"Inside → outside touch — 5 repetitions.",
+"Outside → sole roll — 5 repetitions.",
+"Sole roll → pull-back — 5 repetitions.",
+"Pull-back → direction change — 5 repetitions.",
+"Direction change → acceleration — 5 repetitions.",
+"Acceleration → controlled stop — 5 repetitions.",
+"Repeat the complete combination 5 times.",
+"Use both feet.",
+"Increase speed only when the movement is clean."
+]
+},
+
+{
+title:"TAKE IT INTO MATCHES",
+
+items:[
+"Close control — keep the ball within playing distance.",
+"First touch away from pressure — 10 repetitions.",
+"Inside-foot cut — 5 each side.",
+"Outside-foot cut — 5 each side.",
+"Sole roll — 10 repetitions.",
+"Pull-back — 10 repetitions.",
+"Accelerate after the skill — 5 repetitions.",
+"Use simple skills first.",
+"Keep your body between the opponent and the ball.",
+"Use the skills during real football practice."
+]
+}
+
+]
+
+}
+
+};
+
+
+/* =========================================================
+   SKILL CARDS
+========================================================= */
+
+const skillCards=[
+
+{
+key:"shooting",
+number:"01",
+title:"Shooting",
+text:"Improve finishing, accuracy and striking technique."
+},
+
+{
+key:"speed",
+number:"02",
+title:"Speed",
+text:"Build acceleration, sprinting and change of direction."
+},
+
+{
+key:"stamina",
+number:"03",
+title:"Stamina",
+text:"Build endurance for longer football sessions."
+},
+
+{
+key:"passing",
+number:"04",
+title:"Passing",
+text:"Improve accuracy, first touch and scanning."
+},
+
+{
+key:"weakFoot",
+number:"05",
+title:"Weak Foot",
+text:"Develop confidence and control with your weaker foot."
+},
+
+{
+key:"ballMastery",
+number:"06",
+title:"Ball Mastery",
+text:"Improve close control and touch quality."
+}
+
+];
+
+
+let selectedSkill="shooting";
+
+
+/* =========================================================
+   RENDER SKILLS
+========================================================= */
+
+function renderSkills(){
+
+    document.getElementById("skillsGrid").innerHTML=
+
+    skillCards.map(skill=>`
+
+        <div
+            class="skill-card"
+            onclick="selectSkill('${skill.key}')">
+
+            <div class="skill-number">
+                ${skill.number}
+            </div>
+
+            <h3>
+                ${skill.title}
+            </h3>
+
+            <p>
+                ${skill.text}
+            </p>
+
+            <div class="arrow">
+                →
+            </div>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+/* =========================================================
+   SIDE MENU
+========================================================= */
+
+function renderSideButtons(){
+
+    document.getElementById("trainingMenu").innerHTML=
+
+    skillCards.map(skill=>`
+
+        <button
+            class="${selectedSkill===skill.key?"active":""}"
+            onclick="selectSkill('${skill.key}')">
+
+            ${skill.title}
+
+        </button>
+
+    `).join("");
+
+}
+
+
+/* =========================================================
+   SELECT SKILL
+========================================================= */
+
+function selectSkill(key,shouldScroll=true){
+
+    selectedSkill=key;
+
+    const skill=trainingData[key];
+
+    renderSkills();
+
+    renderSideButtons();
+
+
+    document.getElementById("trainingTitle")
+        .textContent=skill.name;
+
+
+    document.getElementById("trainingDescription")
+        .textContent=skill.description;
+
+
+    document.getElementById("trainingMeta")
+        .innerHTML=`
+
+            <span class="meta">
+                ${skill.duration}
+            </span>
+
+            <span class="meta">
+                ${skill.level}
+            </span>
+
+            <span class="meta">
+                ${skill.focus}
+            </span>
+
+        `;
+
+
+    document.getElementById("trainingVideo")
+        .src=skill.video;
+
+
+    document.getElementById("warmupList")
+        .innerHTML=
+
+        skill.warmup.map(item=>`
+
+            <li>
+
+                <span>
+                    ${item[0]}
+                </span>
+
+                <span>
+                    ${item[1]}
+                </span>
+
+            </li>
+
+        `).join("");
+
+
+    document.getElementById("cooldownList")
+        .innerHTML=
+
+        skill.cooldown.map(item=>`
+
+            <li>
+
+                <span>
+                    ${item[0]}
+                </span>
+
+                <span>
+                    ${item[1]}
+                </span>
+
+            </li>
+
+        `).join("");
+
+
+    document.getElementById("exerciseSections")
+        .innerHTML=
+
+        skill.sections.map(section=>`
+
+            <div class="guide-card">
+
+                <h3>
+                    ${section.title}
+                </h3>
+
+                <ul>
+
+                    ${section.items.map(item=>`
+
+                        <li>
+                            ${item}
+                        </li>
+
+                    `).join("")}
+
+                </ul>
+
+            </div>
+
+        `).join("");
+
+
+    document.getElementById("checkItems")
+        .innerHTML=
+
+        [
+
+            "I completed the warm-up",
+
+            "I completed the main exercises",
+
+            "I focused on technique",
+
+            "I used both feet where required",
+
+            "I completed the match-focused drills",
+
+            "I completed the cool-down"
+
+        ].map((item,index)=>`
+
+            <div class="check-item">
+
+                <label>
+
+                    <input
+                        type="checkbox"
+                        id="check-${key}-${index}">
+
+                    ${item}
+
+                </label>
+
+            </div>
+
+        `).join("");
+
+
+    if(shouldScroll){
+
+        document.getElementById("training")
+            .scrollIntoView({
+                behavior:"smooth",
+                block:"start"
+            });
+
+    }
+
+}
+
+
+/* =========================================================
+   ASSESSMENT
+========================================================= */
+
+const questions=[
+
+{
+q:"How consistent were you during your football training?",
+options:[
+["Excellent",10],
+["Good",8],
+["Average",6],
+["Needs improvement",4]
+]
+},
+
+{
+q:"How well did you control the ball today?",
+options:[
+["Excellent",10],
+["Good",8],
+["Average",6],
+["Needs improvement",4]
+]
+},
+
+{
+q:"How accurate were your passes?",
+options:[
+["Excellent",10],
+["Good",8],
+["Average",6],
+["Needs improvement",4]
+]
+},
+
+{
+q:"How confident were you using your weaker foot?",
+options:[
+["Excellent",10],
+["Good",8],
+["Average",6],
+["Needs improvement",4]
+]
+},
+
+{
+q:"How well did you maintain your stamina?",
+options:[
+["Excellent",10],
+["Good",8],
+["Average",6],
+["Needs improvement",4]
+]
+},
+
+{
+q:"How well did you perform your movements and changes of direction?",
+options:[
+["Excellent",10],
+["Good",8],
+["Average",6],
+["Needs improvement",4]
+]
+},
+
+{
+q:"How accurate was your shooting?",
+options:[
+["Excellent",10],
+["Good",8],
+["Average",6],
+["Needs improvement",4]
+]
+},
+
+{
+q:"How well did you follow the training instructions?",
+options:[
+["Excellent",10],
+["Good",8],
+["Average",6],
+["Needs improvement",4]
+]
+},
+
+{
+q:"How focused were you during the session?",
+options:[
+["Excellent",10],
+["Good",8],
+["Average",6],
+["Needs improvement",4]
+]
+},
+
+{
+q:"How satisfied are you with today's performance?",
+options:[
+["Excellent",10],
+["Good",8],
+["Average",6],
+["Needs improvement",4]
+]
+}
+
+];
+
+
+let currentQuestion=0;
+
+let answers=
+new Array(questions.length).fill(null);
+
+
+/* =========================================================
+   RENDER QUESTIONS
+========================================================= */
+
+function renderQuestions(){
+
+    document.getElementById("questionsContainer")
+    .innerHTML=
+
+    questions.map((question,index)=>`
+
+        <div
+            class="question-card ${index===currentQuestion?"active":""}">
+
+            <h3>
+                ${question.q}
+            </h3>
+
+            <div class="answer-options">
+
+                ${question.options.map(option=>`
+
+                    <button
+                        type="button"
+                        class="answer-option ${
+                            answers[index]===option[1]
+                            ?"selected":""
+                        }"
+                        onclick="selectAnswer(${index},${option[1]},this)">
+
+                        ${option[0]}
+
+                    </button>
+
+                `).join("")}
+
+            </div>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+/* =========================================================
+   SELECT ANSWER
+========================================================= */
+
+function selectAnswer(questionIndex,value,element){
+
+    answers[questionIndex]=value;
+
+    element.parentElement
+    .querySelectorAll(".answer-option")
+    .forEach(button=>{
+        button.classList.remove("selected");
+    });
+
+    element.classList.add("selected");
+
+}
+
+
+/* =========================================================
+   UPDATE ASSESSMENT UI
+========================================================= */
+
+function updateAssessmentUI(){
+
+    document.getElementById("questionCounter")
+        .textContent=
+        `QUESTION ${currentQuestion+1} OF ${questions.length}`;
+
+
+    document.getElementById("assessmentProgress")
+        .style.width=
+        `${((currentQuestion+1)/questions.length)*100}%`;
+
+
+    document.getElementById("previousBtn")
+        .style.visibility=
+        currentQuestion===0
+        ?"hidden"
+        :"visible";
+
+
+    document.getElementById("nextBtn")
+        .textContent=
+        currentQuestion===questions.length-1
+        ?"SUBMIT ASSESSMENT"
+        :"NEXT";
+
+}
+
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+function nextQuestion(){
+
+    if(answers[currentQuestion]===null){
+
+        alert("Please select an answer before continuing.");
+
+        return;
+    }
+
+
+    if(currentQuestion<questions.length-1){
+
+        currentQuestion++;
+
+        renderQuestions();
+
+        updateAssessmentUI();
+
+    }else{
+
+        finishAssessment();
+
+    }
+
+}
+
+
+/* =========================================================
+   PREVIOUS
+========================================================= */
+
+function previousQuestion(){
+
+    if(currentQuestion>0){
+
+        currentQuestion--;
+
+        renderQuestions();
+
+        updateAssessmentUI();
+
+    }
+
+}
+
+
+/* =========================================================
+   FINISH ASSESSMENT
+========================================================= */
+
+function finishAssessment(){
+
+    if(answers.some(answer=>answer===null)){
+
+        alert("Please answer all 10 questions.");
+
+        return;
+    }
+
+
+    const total=
+        answers.reduce(
+            (sum,value)=>sum+value,
+            0
+        );
+
+
+    const score=
+        Math.round(
+            (total/(questions.length*10))*100
+        );
+
+
+    saveSession(score);
+
+
+    document.getElementById("questionsContainer")
+        .style.display="none";
+
+
+    document.querySelector(".assessment-buttons")
+        .style.display="none";
+
+
+    document.getElementById("questionCounter")
+        .style.display="none";
+
+
+    document.querySelector(".progress-container")
+        .style.display="none";
+
+
+    document.getElementById("finalRating")
+        .textContent=score;
+
+
+    let message;
+
+
+    if(score>=90){
+
+        message=
+        "Excellent session. Keep this consistency and continue developing your game.";
+
+    }else if(score>=75){
+
+        message=
+        "Very good session. You are building strong consistency. Keep improving.";
+
+    }else if(score>=60){
+
+        message=
+        "Good foundation. Focus on your weaker areas and keep training consistently.";
+
+    }else{
+
+        message=
+        "Keep working. Focus on one or two areas at a time and build consistency.";
+
+    }
+
+
+    document.getElementById("resultMessage")
+        .textContent=message;
+
+
+    document.getElementById("assessmentResult")
+        .style.display="block";
+
+
+    renderTracker();
+
+}
+
+
+/* =========================================================
+   NEW ASSESSMENT
+========================================================= */
+
+function startNewAssessment(){
+
+    currentQuestion=0;
+
+    answers=
+    new Array(questions.length).fill(null);
+
+
+    document.getElementById("questionsContainer")
+        .style.display="block";
+
+
+    document.querySelector(".assessment-buttons")
+        .style.display="flex";
+
+
+    document.getElementById("questionCounter")
+        .style.display="block";
+
+
+    document.querySelector(".progress-container")
+        .style.display="block";
+
+
+    document.getElementById("assessmentResult")
+        .style.display="none";
+
+
+    renderQuestions();
+
+    updateAssessmentUI();
+
+
+    document.getElementById("assessment")
+        .scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+}
+
+
+/* =========================================================
+   SAVE SESSION
+========================================================= */
+
+function saveSession(score){
+
+    let sessions=
+        JSON.parse(
+            localStorage.getItem("footballSessions")
+            ||"[]"
+        );
+
+
+    sessions.push({
+
+        date:
+        new Date().toLocaleDateString(),
+
+        time:
+        new Date().toLocaleTimeString(
+            [],
+            {
+                hour:"2-digit",
+                minute:"2-digit"
+            }
+        ),
+
+        skill:
+        trainingData[selectedSkill].name,
+
+        rating:score
+
+    });
+
+
+    localStorage.setItem(
+        "footballSessions",
+        JSON.stringify(sessions)
+    );
+
+
+    localStorage.setItem(
+        "lastRating",
+        score
+    );
+
+}
+
+
+/* =========================================================
+   TRACKER
+========================================================= */
+
+function renderTracker(){
+
+    const sessions=
+        JSON.parse(
+            localStorage.getItem("footballSessions")
+            ||"[]"
+        );
+
+
+    const total=sessions.length;
+
+
+    const average=
+        total
+        ?Math.round(
+            sessions.reduce(
+                (sum,item)=>sum+Number(item.rating),
+                0
+            )/total
+        )
+        :0;
+
+
+    const best=
+        total
+        ?Math.max(
+            ...sessions.map(
+                item=>Number(item.rating)
+            )
+        )
+        :0;
+
+
+    document.getElementById("totalSessions")
+        .textContent=total;
+
+
+    document.getElementById("averageRating")
+        .textContent=average;
+
+
+    document.getElementById("bestSession")
+        .textContent=best;
+
+
+    const history=
+        document.getElementById("historyList");
+
+
+    if(!sessions.length){
+
+        history.innerHTML=`
+
+            <div class="empty-history">
+
+                No sessions yet.
+                Complete your first player assessment.
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    history.innerHTML=
+
+    [...sessions]
+    .reverse()
+    .map(session=>`
+
+        <div class="history-item">
+
+            <div>
+
+                <span>
+                    DATE / TIME
+                </span>
+
+                <strong>
+                    ${session.date}
+                    •
+                    ${session.time}
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    SESSION
+                </span>
+
+                <strong>
+                    ${session.skill}
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    RATING
+                </span>
+
+                <strong>
+                    ${session.rating}/100
+                </strong>
+
+            </div>
+
+        </div>
+
+    `)
+    .join("");
+
+}
+
+
+/* =========================================================
+   CLEAR HISTORY
+========================================================= */
+
+function clearHistory(){
+
+    if(!confirm("Clear all session history?")){
+
+        return;
+
+    }
+
+
+    localStorage.removeItem(
+        "footballSessions"
+    );
+
+
+    localStorage.removeItem(
+        "lastRating"
+    );
+
+
+    renderTracker();
+
+    startNewAssessment();
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+renderSkills();
+
+renderSideButtons();
+
+selectSkill(
+    "shooting",
+    false
+);
+
+renderQuestions();
+
+updateAssessmentUI();
+
+renderTracker();
+
+</script>
+
+</body>
+</html>
